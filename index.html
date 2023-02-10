@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Proxy Server</title>
+  <script src="./otherfile/moment.min.js"></script>
+  <link rel="stylesheet" href="./otherfile/element-plus.css" />
+  <script src="./otherfile//vue3.js"></script>
+  <script src="./otherfile/index.full.js"></script>
+  <script src="./otherfile/icons-vue.js"></script>
+  <link href="./styles/styles.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <div id="app" class="app">
+    <h1>Proxy Server</h1>
+
+    <div class="container" v-for="item,index in list">
+      <div class="app-input-local-ip">
+        <el-input size="large" v-model="item.local" placeholder="Please input" disabled></el-input>
+      </div>
+      <div class="app-input-local-port">
+        <el-input size="large" v-model="item.port" placeholder="Port" :disabled="item.status"
+          v-on:input="changePort(index)"></el-input>
+      </div>
+      <div class="app-input-target">
+        <el-input size="large" v-model="item.target" placeholder="Target" :disabled="item.status"
+          v-on:input="changeTarget(index)"></el-input>
+      </div>
+      <div class="app-btn">
+        <el-button v-bind:type="[item.status==1 ? 'primary' : 'info']" v-bind:disabled="item.btnDis"
+          v-on:click="changeStatus(index)">{{item.btn}}</el-button>
+        <el-button v-bind:type="[item.status==1 ? 'primary' : 'info']"
+          v-bind:disabled="list.length<=1||item.status==1?1:0" v-on:click="deleteItem(index)">Delete</el-button>
+      </div>
+    </div>
+
+    <div class="list-addbtn">
+      <el-button v-on:click="add">Add</el-button>
+    </div>
+
+  </div>
+
+</body>
+
+<script src=" ./scripts/renderer.js"></script>
+
+</html>

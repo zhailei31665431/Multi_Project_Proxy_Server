@@ -1,0 +1,61 @@
+.el-message i {
+    display: none;
+  }
+
+  .app {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+        overflow-y: auto;
+  }
+  .container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+    padding:0 20px;
+  }
+  .container:first-child{
+    margin-top: 0;
+  }
+  .container > div{
+    display: flex;
+  }
+
+  .app h2 {}
+
+  input {}
+
+  .app-input-local-ip {
+    margin-left: 20px;
+    width: 114px;
+  }
+
+  .app-input-local-port {
+    margin-left: 20px;
+    width: 80px;
+    
+  }
+
+  .app-input-target {
+    display: flex;
+    flex:1;
+    margin-left: 20px;
+  }
+
+  .app-btn {
+    margin-left: 20px;
+  }
+
+  .app-btn button {
+    width: 80px;
+    ;
+  }
+
+  .list-addbtn{
+    margin-top: 40px;
+  }
+  .list-addbtn button{
+    width: 100px;
+  }
