@@ -41,8 +41,9 @@ ipcMain.on('open', function (event, arg) {
     });
   }).listen(arg.port);
 
+  htmlPic.send('success');
   proxyList[arg['index']].on('error', (error) => {
-    htmlPic.send('error', error);
+    htmlPic.send('error', { error: error, index: arg['index'] })
   })
 });
 ipcMain.on('close', function (event, arg) {
@@ -61,6 +62,7 @@ function createWindow() {
     height: 500,
     resizable: false,
     fullscreen: false,
+    frame: true,
     titleBarStyle: "hidden",
     webPreferences: {
       preload: path.join(__dirname, 'scripts/preload.js'),
@@ -81,5 +83,9 @@ app.whenReady().then(() => {
 })
 
 app.on('window-all-closed', function () {
+  for (let i in proxyList) {
+    let item = proxyList[i];
+    item.close();
+  }
   if (process.platform !== 'darwin') app.quit()
 })

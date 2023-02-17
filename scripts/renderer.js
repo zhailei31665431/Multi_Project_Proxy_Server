@@ -18,14 +18,14 @@ let list = [{
   target: "",
 }];
 if (server) {
-
   let data = JSON.parse(server);
   list = data.map((item) => {
-    console.log(item);
     let btnDis = 1;
+    item['status'] = 0;
     if (item.port && item.target) {
       item.btnDis = checkData(item.port, item.target);
     }
+    item['btn'] = `Start`
     return item;
   })
 }
@@ -83,7 +83,6 @@ const App = {
         port: "",
         target: "",
       })
-      console.log(this.list, '123')
     }
   },
   mounted() {
@@ -93,9 +92,11 @@ const App = {
       new Notification("Success", { body: `Proxy Success` })
     })
     ipcRenderer.on("error", function (event, arg) {
-      new Notification("Error", { body: arg })
-      self.status = 0;
-      self.btn = 'Start';
+      new Notification("Error", { body: arg.error })
+      // self.status = 0;
+      // self.btn = 'Start';
+      self.list[arg['index']].status = 0;
+      self.list[arg['index']].btn = 'Start';
     })
   },
 };
