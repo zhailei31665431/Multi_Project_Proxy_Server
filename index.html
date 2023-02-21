@@ -16,6 +16,7 @@
 </head>
 
 <body style="-webkit-app-region: drag">
+  <!-- -->
   <div id="app" class="app">
     <h1>Proxy Server</h1>
 
@@ -39,9 +40,10 @@
             v-bind:disabled="list.length<=1||item.status==1?1:0" v-on:click="deleteItem(index)">Delete</el-button>
         </div>
       </div>
+      <div v-bind:class="`container-json container-json-${index}`">{{initJSON(index)}}</div>
     </div>
 
-    <div class="list-addbtn">
+    <div class=" list-addbtn" style="-webkit-app-region: no-drag;">
       <el-button v-on:click="add">Add</el-button>
     </div>
 

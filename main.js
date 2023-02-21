@@ -53,11 +53,6 @@ ipcMain.on('close', function (event, arg) {
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
-    // width: 260,
-    // height: 360,
-    // maxWidth: 260,
-    // maxHeight: 360,
-
     width: 700,
     height: 500,
     resizable: false,

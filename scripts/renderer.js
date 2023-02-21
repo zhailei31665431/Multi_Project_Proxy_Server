@@ -83,6 +83,12 @@ const App = {
         port: "",
         target: "",
       })
+    },
+    initJSON(index) {
+      // console.log(index);
+      let name = `.container-json-${index}`;
+      const element = document.querySelector(name);
+      console.log(name, element);
     }
   },
   mounted() {
