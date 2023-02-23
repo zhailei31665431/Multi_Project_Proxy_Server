@@ -16,7 +16,7 @@
     "tutorial",
     "demo"
   ],
-  "author": "GitHub",
+  "author": "GitHub", 
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^23.0.0",
