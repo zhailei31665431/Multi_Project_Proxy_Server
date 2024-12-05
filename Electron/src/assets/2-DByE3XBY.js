@@ -1,0 +1,1 @@
+import{_ as e}from"./_plugin-vue_export-helper-DlAUqK2U.js";import{a5 as o,X as r}from"./index-D6m-GpZ3.js";const t={};function c(n,a){return r(),o("div",null," Navigation 2 ")}const f=e(t,[["render",c]]);export{f as default};
